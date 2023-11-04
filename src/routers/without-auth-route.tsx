@@ -1,5 +1,5 @@
 import { RouteObject } from "react-router-dom";
-import LoginPage from "../login/LoginPage";
+import LoginPage from "../pages/login/Login.page";
 
 const WITHOUT_AUTH_ROUTE : RouteObject[] = [
     {
