@@ -3,7 +3,7 @@ import LoginPage from "../pages/login/Login.page";
 
 const WITHOUT_AUTH_ROUTE : RouteObject[] = [
     {
-        path: '/',
+        path: '/login',
         element: <LoginPage/>,
     }
 ];
