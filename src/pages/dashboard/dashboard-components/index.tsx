@@ -1,0 +1,1 @@
+export {default as UserListComponent} from './user-list/User-list.component';

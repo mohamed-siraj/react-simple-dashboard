@@ -1,9 +1,7 @@
 import React from "react";
 
 class LoginPage extends React.Component {
-
     
-
     render(): React.ReactNode {
         return (<>
             <div className="flex flex-row justify-center py-64">
