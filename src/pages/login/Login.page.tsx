@@ -28,6 +28,11 @@ class LoginPage extends React.Component {
                                     Login
                                 </button>
                             </div>
+                            <div className="mt-3 mb-3 w-80">
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
+                                    Register
+                                </button>
+                            </div>
                         </div>
                     </div>
 

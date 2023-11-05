@@ -22,6 +22,7 @@ const UserListComponent: React.FunctionComponent = () => {
             </div>
         </div>
         <AnimatePulseUserListComponent />
+        
     </>);
 };
 
