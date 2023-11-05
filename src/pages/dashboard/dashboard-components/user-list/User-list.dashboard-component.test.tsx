@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import UserListComponent from './User-list.component';
+import UserListDashboardComponent from './User-list.dashboard-component';
 
 test('renders user list component', () => {
-  render(<UserListComponent />);
+  render(<UserListDashboardComponent />);
   const linkElement = screen.getByText(/Login Form/i);
   expect(linkElement).toBeInTheDocument();
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimatePulseUserListComponent } from "./user-list.components";
 
-const UserListComponent: React.FunctionComponent = () => {
+const UserListDashboardComponent: React.FunctionComponent = () => {
 
     return (<>
         <div
@@ -26,4 +26,4 @@ const UserListComponent: React.FunctionComponent = () => {
     </>);
 };
 
-export default UserListComponent;
+export default UserListDashboardComponent;

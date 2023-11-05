@@ -1,1 +1,2 @@
-export {default as UserListComponent} from './user-list/User-list.component';
+export {default as UserListDashboardComponent} from './user-list/User-list.dashboard-component';
+export {default as UserCreateUpdateDashboardComponent} from './user-create-update/User-create-update.dashboard-component';
