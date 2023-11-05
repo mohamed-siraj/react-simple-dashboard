@@ -16,7 +16,7 @@ const AnimatePulseUserListComponent: React.FunctionComponent = () => {
                 </div>
             </div>
         </div>
-    </div>);
+    </div>); 
 };
 
 export default AnimatePulseUserListComponent;
