@@ -1,10 +1,10 @@
 import * as yup from "yup";
 
-const schema = yup
+const SCHEMA = yup
   .object({
     email: yup.string().email().required(),
-    password: yup.string().max(10).min(10).required()
+    password: yup.string().min(5).required()
   })
   .required();
 
-export default schema;
+export default SCHEMA;

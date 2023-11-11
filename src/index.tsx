@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './tailwind.css';
+import "react-toastify/dist/ReactToastify.css";
 import reportWebVitals from './reportWebVitals'; 
 import {
   RouterProvider,
 } from "react-router-dom";
 import router from './routers/router';
-
+import { ToastContainer} from 'react-toastify';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer/>
   </React.StrictMode>
 );
 

@@ -1,13 +1,22 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { TLoginForm } from "../../_types/_forms/login-page.form-type";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginPageFormSchema } from "../../schema/form";
 import { Link } from "react-router-dom";
-
-
+import { SirajPng } from "../../assets";
+import LoadingComponent from "../components/loading.component";
+import { toast } from 'react-toastify';
+import ApiService from "../../services/Api.service";
+import { AxiosError, AxiosResponse } from "axios";
+import { TLoginRequest } from "../../_types/_login.type";
 
 const LoginPage: React.FunctionComponent = () => {
+
+    /**
+     * local state management
+     */
+    const [loading, setLoading] = useState<boolean>(false);
 
     /**
      * form declaration
@@ -16,13 +25,50 @@ const LoginPage: React.FunctionComponent = () => {
         resolver: yupResolver(LoginPageFormSchema)
     });
 
-    const onSubmit: SubmitHandler<TLoginForm> = useCallback((values) => {
+    const onSubmit: SubmitHandler<TLoginForm> = useCallback(async (values) => {
+
+        /**
+         * check demo credentials
+         */
+        if (values.email !== 'mohamedsiraj@siraj.lk' || values.password !== 'followme') {
+            toast.warning('Please use demo credentials');
+            return;
+        }
+
+        const PAYLOAD: TLoginRequest = {
+            email: 'eve.holt@reqres.in',
+            password: 'cityslicka'
+        }
+
+        try {
+
+            const API_SERVICE = new ApiService();
+            const response: AxiosResponse<{ token: string }> = await API_SERVICE.login(PAYLOAD);
+
+        } catch (errors: any) {
+
+            /**
+             * error handling
+             */
+            const ERROR: AxiosError<{ error: string }> = errors;
+            toast.error(`${ERROR.response?.data.error}`);
+        }
 
     }, []);
 
     return (<>
-        <div className="flex flex-row justify-center py-64">
-            <div className="bg-white w-96 h-[29rem] rounded-2xl shadow-2xl">
+        <div className="flex flex-row justify-center mt-16">
+            <img src={SirajPng} className=" rounded-full w-32" alt="Mohamed Siraj" />
+            <div className="flex flex-col ml-5 mt-2">
+                <div className=" text-xl font-bold">Mohamed Siraj</div>
+                <div className=" text-md font-bold">Senior Software Engineer</div>
+                <Link to={`mailto:amsiraj94@gmail.com`}><div className=" text-md font-bold">amsiraj94@gmail.com</div></Link>
+                <Link to={`tel:+94756595269`}><div className=" text-md font-bold">+94756595269</div></Link>
+            </div>
+        </div>
+
+        <div className="flex flex-row justify-center py-20">
+            <div className="bg-white w-96 h-[32rem] rounded-2xl shadow-2xl">
                 <div className="mt-10 text-center text-2xl font-bold">
                     <h1>Login</h1>
                 </div>
@@ -45,7 +91,7 @@ const LoginPage: React.FunctionComponent = () => {
                             </div>
                             <div className="mt-3 mb-3 w-80">
                                 <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full">
-                                    Login
+                                    {!loading ? 'Login' : <LoadingComponent color="green" textColor="white" />}
                                 </button>
                             </div>
                             <div className="mt-3 mb-3 w-80">
@@ -54,6 +100,13 @@ const LoginPage: React.FunctionComponent = () => {
                                         Register
                                     </button>
                                 </Link>
+                            </div>
+                            <div className="mt-3 mb-3 w-80">
+                                <div className="text-left text-xl font-bold">
+                                    <h1>Demo Credentials</h1>
+                                </div>
+                                <div className=" text-sm font-bold">username : mohamedsiraj@siraj.lk</div>
+                                <div className=" text-sm font-bold">password : followme</div>
                             </div>
                         </div>
                     </div>
