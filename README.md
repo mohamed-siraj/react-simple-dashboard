@@ -20,9 +20,9 @@ sign-up, user create, loading and to do list.
 3.Axios
 4.Tailwind
 
-## Developer Details
-name - mohamed siraj
-position - senior software engineer at codzbee pvt ltd
+# Developer Details
+    name - mohamed siraj
+    position - senior software engineer at codzbee pvt ltd
 # contact
     email - amsiraj94@gmail.com
     mobile - +94756595269
