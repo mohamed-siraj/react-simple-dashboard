@@ -2,9 +2,35 @@
 
 This project was developed using ReactJs
 
+DEMO URL : https://mohamed-siraj.github.io/react-simple-dashboard
 
+## Purpose For This Project
 
-## Available Scripts
+This is just education purpose project
+
+## About This Project
+
+This is simple dashboard experience application. you can experience login, logout
+sign-up, user create, loading and to do list.
+
+## Used Main JS and CSS Technologies
+
+1.ReactJs
+2.Easy Peasy - state management
+3.Axios
+4.Tailwind
+
+## Developer Details
+name - mohamed siraj
+position - senior software engineer at codzbee pvt ltd
+# contact
+    email - amsiraj94@gmail.com
+    mobile - +94756595269
+    whatsApp - +94756595269
+# social contact
+    Linkedin - https://www.linkedin.com/in/m-mohamed-siraj
+
+## How Can You Run This Application
 
 In the project directory, you can run:
 
