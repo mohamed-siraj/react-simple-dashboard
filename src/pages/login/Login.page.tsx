@@ -8,8 +8,9 @@ import { SirajPng } from "../../assets";
 import LoadingComponent from "../components/loading.component";
 import { toast } from 'react-toastify';
 import ApiService from "../../services/Api.service";
-import { AxiosError, AxiosResponse } from "axios";
-import { TLoginRequest } from "../../_types/_login.type";
+import { TLoginRequest } from "../../_types/_request/_login.request-type";
+import { TLoginSuccessResponse } from "../../_types/_response/_login.response-type";
+import StorageService from "../../services/Storage.service";
 
 const LoginPage: React.FunctionComponent = () => {
 
@@ -35,24 +36,27 @@ const LoginPage: React.FunctionComponent = () => {
             return;
         }
 
+        //start loading
+        setLoading(true);
+
+        //payload create
         const PAYLOAD: TLoginRequest = {
             email: 'eve.holt@reqres.in',
             password: 'cityslicka'
         }
 
-        try {
+        //api call
+        const API_SERVICE = new ApiService();
+        const result: TLoginSuccessResponse | undefined = await API_SERVICE.login(PAYLOAD);
+        
+        /**
+         * store token
+         */
+        const STORE = new StorageService();
+        await STORE.setItem('token', result?.token);
 
-            const API_SERVICE = new ApiService();
-            const response: AxiosResponse<{ token: string }> = await API_SERVICE.login(PAYLOAD);
-
-        } catch (errors: any) {
-
-            /**
-             * error handling
-             */
-            const ERROR: AxiosError<{ error: string }> = errors;
-            toast.error(`${ERROR.response?.data.error}`);
-        }
+        setLoading(false);
+        
 
     }, []);
 
