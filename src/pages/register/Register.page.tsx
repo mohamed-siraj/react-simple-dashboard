@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class RegisterPage extends React.Component {
 
@@ -31,13 +32,15 @@ class RegisterPage extends React.Component {
                             </div>
                             <div className="mt-3 mb-3 w-80">
                                 <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full">
-                                    Login
+                                    SignUp
                                 </button>
                             </div>
                             <div className="mt-3 mb-3 w-80">
-                                <button className="bg-black text-white font-bold py-2 px-4 rounded w-full">
-                                    Back
-                                </button>
+                                <Link to={'/login'}>
+                                    <button className="bg-black text-white font-bold py-2 px-4 rounded w-full">
+                                        Back
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

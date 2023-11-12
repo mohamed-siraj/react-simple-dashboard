@@ -1,6 +1,12 @@
+import React from "react";
 import { RouteObject } from "react-router-dom";
-import DashboardPage from "../pages/dashboard/Dashboard.page";
 import AuthGuard from "./guard/auth.guard";
+
+/**
+ * lazy loading
+ */
+
+const DashboardPage = React.lazy(() => import('../pages/dashboard/Dashboard.page'));
 
 
 const AUTH_ROUTE: RouteObject[] = [
