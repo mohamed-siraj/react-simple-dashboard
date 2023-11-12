@@ -1,28 +1,28 @@
 {
   "files": {
     "main.css": "/react-simple-dashboard/static/css/main.2e2263f8.css",
-    "main.js": "/react-simple-dashboard/static/js/main.7b58ddb5.js",
+    "main.js": "/react-simple-dashboard/static/js/main.b9de0513.js",
     "static/js/462.eac957b0.chunk.js": "/react-simple-dashboard/static/js/462.eac957b0.chunk.js",
     "static/js/316.f6a0672f.chunk.js": "/react-simple-dashboard/static/js/316.f6a0672f.chunk.js",
     "static/js/611.3e5f1f51.chunk.js": "/react-simple-dashboard/static/js/611.3e5f1f51.chunk.js",
-    "static/js/407.48419ec4.chunk.js": "/react-simple-dashboard/static/js/407.48419ec4.chunk.js",
+    "static/js/407.4d31bd89.chunk.js": "/react-simple-dashboard/static/js/407.4d31bd89.chunk.js",
     "static/js/787.d9189018.chunk.js": "/react-simple-dashboard/static/js/787.d9189018.chunk.js",
     "static/js/685.ff3a7280.chunk.js": "/react-simple-dashboard/static/js/685.ff3a7280.chunk.js",
     "static/js/174.dbe30b55.chunk.js": "/react-simple-dashboard/static/js/174.dbe30b55.chunk.js",
     "static/media/600x600.svg": "/react-simple-dashboard/static/media/600x600.765627ea1cdf07bb9961ff7e9ededb27.svg",
     "index.html": "/react-simple-dashboard/index.html",
     "main.2e2263f8.css.map": "/react-simple-dashboard/static/css/main.2e2263f8.css.map",
-    "main.7b58ddb5.js.map": "/react-simple-dashboard/static/js/main.7b58ddb5.js.map",
+    "main.b9de0513.js.map": "/react-simple-dashboard/static/js/main.b9de0513.js.map",
     "462.eac957b0.chunk.js.map": "/react-simple-dashboard/static/js/462.eac957b0.chunk.js.map",
     "316.f6a0672f.chunk.js.map": "/react-simple-dashboard/static/js/316.f6a0672f.chunk.js.map",
     "611.3e5f1f51.chunk.js.map": "/react-simple-dashboard/static/js/611.3e5f1f51.chunk.js.map",
-    "407.48419ec4.chunk.js.map": "/react-simple-dashboard/static/js/407.48419ec4.chunk.js.map",
+    "407.4d31bd89.chunk.js.map": "/react-simple-dashboard/static/js/407.4d31bd89.chunk.js.map",
     "787.d9189018.chunk.js.map": "/react-simple-dashboard/static/js/787.d9189018.chunk.js.map",
     "685.ff3a7280.chunk.js.map": "/react-simple-dashboard/static/js/685.ff3a7280.chunk.js.map",
     "174.dbe30b55.chunk.js.map": "/react-simple-dashboard/static/js/174.dbe30b55.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2e2263f8.css",
-    "static/js/main.7b58ddb5.js"
+    "static/js/main.b9de0513.js"
   ]
 }
