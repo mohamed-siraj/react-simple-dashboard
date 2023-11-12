@@ -1,7 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import StorageService from "../../services/Storage.service";
 
 const NotFoundPage: React.FunctionComponent = () => {
+
+    /**
+     * route manage
+     */
+    const navigate = useNavigate();
+
+    (async function () {
+
+        //storage 
+        const STORE = new StorageService();
+        const token = await STORE.getItem('token');
+
+        /**
+         * if has token
+         */
+        if (token) {
+            navigate('/');
+        }else{
+            navigate('/login');
+        }
+
+    })();
+
 
     return (<>
         <main className="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
