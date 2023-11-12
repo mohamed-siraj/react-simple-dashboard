@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { TLoginForm } from "../../_types/_forms/login-page.form-type";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,6 +14,11 @@ import { TLoginSuccessResponse } from "../../_types/_response/_login.response-ty
 import StorageService from "../../services/Storage.service";
 
 const LoginPage: React.FunctionComponent = () => {
+
+    /**
+     * route manage
+     */
+    const navigate = useNavigate();
 
     /**
      * local state management
@@ -56,9 +62,14 @@ const LoginPage: React.FunctionComponent = () => {
         await STORE.setItem('token', result?.token);
 
         setLoading(false);
-        
 
-    }, []);
+        toast.success('Welcome to My Dashboard', {
+            position : 'top-center'
+        });
+        
+        navigate('/');
+
+    }, [navigate]);
 
     return (<>
         <div className="flex flex-row justify-center mt-16">
@@ -99,7 +110,7 @@ const LoginPage: React.FunctionComponent = () => {
                                 </button>
                             </div>
                             <div className="mt-3 mb-3 w-80">
-                                <Link to="/register" preventScrollReset={true} >
+                                <Link to="/register">
                                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
                                         Register
                                     </button>

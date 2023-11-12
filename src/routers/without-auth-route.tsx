@@ -1,15 +1,22 @@
+import React from "react";
 import { RouteObject } from "react-router-dom";
-import LoginPage from "../pages/login/Login.page";
-import RegisterPage from "../pages/register/Register.page";
+import NoAuthGuard from "./guard/no-auth.guard";
 
-const WITHOUT_AUTH_ROUTE : RouteObject[] = [
+/**
+ * lazy loading
+ */
+
+const LoginPage = React.lazy(() => import('../pages/login/Login.page'));
+const RegisterPage = React.lazy(() => import('../pages/register/Register.page'));
+
+const WITHOUT_AUTH_ROUTE: RouteObject[] = [
     {
         path: '/login',
-        element: <LoginPage/>,
+        element: <NoAuthGuard auth={false}><LoginPage /></NoAuthGuard>,
     },
     {
         path: '/register',
-        element: <RegisterPage/>,
+        element: <NoAuthGuard auth={false}><RegisterPage /></NoAuthGuard>,
     }
 ];
 

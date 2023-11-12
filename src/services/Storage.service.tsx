@@ -18,6 +18,14 @@ class StorageService {
         return await localStorage.getItem(key);
     }
 
+    /**
+     * @description delete value from store
+     * @param key 
+     */
+    async removeItem(key: string) {
+        await localStorage.removeItem(key);
+    }
+
 
 };
 
