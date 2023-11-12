@@ -1,0 +1,1 @@
+export {default as LoginPageFormSchema} from './login-page.form-schema'
