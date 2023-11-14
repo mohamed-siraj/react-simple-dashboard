@@ -1,30 +1,30 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import StorageService from "../../services/Storage.service";
+import { Link } from "react-router-dom";
+// import StorageService from "../../services/Storage.service";
 
 const NotFoundPage: React.FunctionComponent = () => {
 
-    /**
-     * route manage
-     */
-    const navigate = useNavigate();
+    // /**
+    //  * route manage
+    //  */
+    // const navigate = useNavigate();
 
-    (async function () {
+    // (async function () {
 
-        //storage 
-        const STORE = new StorageService();
-        const token = await STORE.getItem('token');
+    //     //storage 
+    //     const STORE = new StorageService();
+    //     const token = await STORE.getItem('token');
 
-        /**
-         * if has token
-         */
-        if (token) {
-            navigate('/');
-        }else{
-            navigate('/login');
-        }
+    //     /**
+    //      * if has token
+    //      */
+    //     if (token) {
+    //         navigate('/react-simple-dashboard');
+    //     }else{
+    //         navigate('/react-simple-dashboard/login');
+    //     }
 
-    })();
+    // })();
 
 
     return (<>
@@ -42,7 +42,7 @@ const NotFoundPage: React.FunctionComponent = () => {
                     ></span>
 
                     <span className="relative block px-8 py-3 bg-[#1A2238] border border-current">
-                        <Link to="/">Go Home</Link>
+                        <Link to="/react-simple-dashboard">Go Home</Link>
                     </span>
                 </div>
             </button>

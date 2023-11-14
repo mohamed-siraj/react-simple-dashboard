@@ -26,7 +26,7 @@ const AuthGuard: React.FunctionComponent<TAuthGuard> = ({ children, auth }) => {
          * if has token
          */
         if (!token && auth) {
-            navigate('/login');
+            navigate('/react-simple-dashboard/login');
         }
 
     })();

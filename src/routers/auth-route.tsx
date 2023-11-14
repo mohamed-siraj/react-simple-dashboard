@@ -11,7 +11,7 @@ const DashboardPage = React.lazy(() => import('../pages/dashboard/Dashboard.page
 
 const AUTH_ROUTE: RouteObject[] = [
     {
-        path: '/',
+        path: '/react-simple-dashboard',
         element: <AuthGuard auth={true}><DashboardPage /></AuthGuard>,
     }
 ];
