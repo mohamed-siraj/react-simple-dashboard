@@ -67,7 +67,7 @@ const LoginPage: React.FunctionComponent = () => {
             position : 'top-center'
         });
         
-        navigate('/');
+        navigate('/react-simple-dashboard');
 
     }, [navigate]);
 
@@ -110,7 +110,7 @@ const LoginPage: React.FunctionComponent = () => {
                                 </button>
                             </div>
                             <div className="mt-3 mb-3 w-80">
-                                <Link to="/register">
+                                <Link to="/react-simple-dashboard/register">
                                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
                                         Register
                                     </button>

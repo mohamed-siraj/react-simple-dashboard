@@ -25,7 +25,7 @@ const NoAuthGuard: React.FunctionComponent<TAuthGuard> = ({ children, auth }) =>
          * if has token
          */
         if (token && !auth) {
-            navigate('/');
+            navigate('/react-simple-dashboard');
         }
 
     })();

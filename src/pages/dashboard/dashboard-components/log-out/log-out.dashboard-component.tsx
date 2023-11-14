@@ -16,7 +16,7 @@ const LogOutDashboardComponent: React.FunctionComponent = () => {
          */
         const STORE = new StorageService();
         await STORE.removeItem('token');
-        navigate('/login');
+        navigate('/react-simple-dashboard/login');
     }
 
     return (<>

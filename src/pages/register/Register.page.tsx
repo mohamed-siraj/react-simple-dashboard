@@ -36,7 +36,7 @@ class RegisterPage extends React.Component {
                                 </button>
                             </div>
                             <div className="mt-3 mb-3 w-80">
-                                <Link to={'/login'}>
+                                <Link to={'/react-simple-dashboard/login'}>
                                     <button className="bg-black text-white font-bold py-2 px-4 rounded w-full">
                                         Back
                                     </button>
