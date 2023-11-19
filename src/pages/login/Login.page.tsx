@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 import { SirajPng } from "../../assets";
 import LoadingComponent from "../components/loading.component";
 import { toast } from 'react-toastify';
-import ApiService from "../../services/Api.service";
+import ApiService from "../../services/api/Api.service";
 import { TLoginRequest } from "../../_types/_request/_login.request-type";
 import { TLoginSuccessResponse } from "../../_types/_response/_login.response-type";
-import StorageService from "../../services/Storage.service";
+import StorageService from "../../services/storage/Storage.service";
 
 const LoginPage: React.FunctionComponent = () => {
 
@@ -54,7 +54,7 @@ const LoginPage: React.FunctionComponent = () => {
         //api call
         const API_SERVICE = new ApiService();
         const result: TLoginSuccessResponse | undefined = await API_SERVICE.login(PAYLOAD);
-        
+
         /**
          * store token
          */
@@ -64,9 +64,9 @@ const LoginPage: React.FunctionComponent = () => {
         setLoading(false);
 
         toast.success('Welcome to My Dashboard', {
-            position : 'top-center'
+            position: 'top-center'
         });
-        
+
         navigate('/react-simple-dashboard');
 
     }, [navigate]);

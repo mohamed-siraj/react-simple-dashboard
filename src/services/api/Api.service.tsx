@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from "axios";
-import { TLoginRequest } from "../_types/_request/_login.request-type";
+import { TLoginRequest } from "../../_types/_request/_login.request-type";
 import { toast } from 'react-toastify';
 import { AxiosError, AxiosResponse } from "axios";
-import { TLoginErrorResponse, TLoginSuccessResponse } from "../_types/_response/_login.response-type";
+import { TLoginErrorResponse, TLoginSuccessResponse } from "../../_types/_response/_login.response-type";
 class ApiService {
 
     private instance: AxiosInstance;
