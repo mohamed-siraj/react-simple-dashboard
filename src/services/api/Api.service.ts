@@ -4,12 +4,13 @@ import { toast } from 'react-toastify';
 import { TLoginErrorResponse, TLoginSuccessResponse } from "../../_types/_response/_login.response-type";
 class ApiService {
 
-    private instance: AxiosInstance;
+    private INSTANCE: AxiosInstance;
+    public BASE_URL = 'https://reqres.in/api';
 
     constructor() {
         //create axios instance
-        this.instance = axios.create({
-            baseURL: 'https://reqres.in/api'
+        this.INSTANCE = axios.create({
+            baseURL: this.BASE_URL
         });
     }
 
@@ -21,8 +22,8 @@ class ApiService {
 
         try {
 
-            const response: AxiosResponse<TLoginSuccessResponse> = await this.instance.post(`/login`, login);
-            return response.data;
+            const response: AxiosResponse<TLoginSuccessResponse> = await this.INSTANCE.post(`/login`, login);
+            return response;
 
         } catch (errors: any) {
 
@@ -30,14 +31,7 @@ class ApiService {
              * error handling
              */
             const ERROR: AxiosError<TLoginErrorResponse> = errors;
-
-            // response api
-            if(ERROR.response?.data?.error){
-                toast.error(`${ERROR.response?.data.error}`);
-            }else{
-                // response axios
-                toast.error(`${ERROR.message}`);
-            }
+            toast.error(`${ERROR.response?.data.error}`);
         }
 
     }

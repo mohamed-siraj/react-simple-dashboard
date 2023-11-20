@@ -10,7 +10,6 @@ import LoadingComponent from "../components/loading.component";
 import { toast } from 'react-toastify';
 import ApiService from "../../services/api/Api.service";
 import { TLoginRequest } from "../../_types/_request/_login.request-type";
-import { TLoginSuccessResponse } from "../../_types/_response/_login.response-type";
 import StorageService from "../../services/storage/Storage.service";
 
 const LoginPage: React.FunctionComponent = () => {
@@ -53,13 +52,13 @@ const LoginPage: React.FunctionComponent = () => {
 
         //api call
         const API_SERVICE = new ApiService();
-        const result: TLoginSuccessResponse | undefined = await API_SERVICE.login(PAYLOAD);
+        const result = await API_SERVICE.login(PAYLOAD);
 
         /**
          * store token
          */
         const STORE = new StorageService();
-        await STORE.setItem('token', result?.token);
+        await STORE.setItem('token', result?.data.token);
 
         setLoading(false);
 
