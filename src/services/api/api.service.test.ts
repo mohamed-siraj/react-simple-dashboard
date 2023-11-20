@@ -32,11 +32,6 @@ describe('Login api testing', () => {
         const apiService = new ApiService();
         await apiService.login(payload);
 
-        const t = () => {
-            throw new TypeError();
-          };
-          expect(t).toThrow(TypeError);
-
     });
 
 });
