@@ -2,18 +2,26 @@
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import LoginPage from './Login.page';
 import { BrowserRouter } from 'react-router-dom';
+import TestRenderer from 'react-test-renderer';
+
 
 describe('Login component test', () => {
 
-  test('login page successfully rendering', () => {
-    render(<BrowserRouter><LoginPage /></BrowserRouter>);
+  test('login page successfully rendering', async () => {
+
+    await TestRenderer.act(() => {
+      render(<BrowserRouter><LoginPage initLoading={false} /></BrowserRouter>);
+    })
+
     const linkElement = screen.getByText('Senior Software Engineer');
     expect(linkElement).toBeInTheDocument();
   });
 
   test('check all components are there in login page', async () => {
-    
-    render(<BrowserRouter><LoginPage /></BrowserRouter>);
+
+    await TestRenderer.act(() => {
+      render(<BrowserRouter><LoginPage initLoading={false} /></BrowserRouter>);
+    })
 
     /**
      * check filed and button there in login page
@@ -30,28 +38,42 @@ describe('Login component test', () => {
     const passwordInput = screen.getByTestId('password');
     expect(passwordInput).toBeInTheDocument();
 
-    const loginBtn = screen.getByRole('button', {name: 'Login'});
+    const loginBtn = screen.getByRole('button', { name: 'Login' });
     expect(loginBtn).toBeInTheDocument();
+
 
   });
 
   test('check form submit validation', async () => {
-    
-    render(<BrowserRouter><LoginPage /></BrowserRouter>);
+
+    await TestRenderer.act(() => {
+      render(<BrowserRouter><LoginPage initLoading={false} /></BrowserRouter>);
+    })
+
     //get button element and trigger click event
-    const submitBtn = screen.getByRole('button', {name: 'Register'});
-    
+    const submitBtn = screen.getByRole('button', { name: 'Register' });
+
     // if react state handle inside of this submit area we should use act function from test library
-    await act(() => {
+    await TestRenderer.act(() => {
       fireEvent.submit(submitBtn);
     });
 
     //get validation event check email validation
-    const emailValidation =  screen.getByText('email is a required field');
+    const emailValidation = screen.getByText('email is a required field');
     expect(emailValidation).toBeInTheDocument();
     //password validation
-    const passwordValidation =  screen.getByText('password must be at least 5 characters');
+    const passwordValidation = screen.getByText('password must be at least 5 characters');
     expect(passwordValidation).toBeInTheDocument();
+
+  });
+
+  test('Loading component check', async () => {
+    await TestRenderer.act(() => {
+      render(<BrowserRouter><LoginPage initLoading={true} /></BrowserRouter>);
+    })
+
+    const textLoading = screen.getByText('Loading...');
+    expect(textLoading).toBeInTheDocument();
 
   });
 

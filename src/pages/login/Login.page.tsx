@@ -12,7 +12,11 @@ import ApiService from "../../services/api/Api.service";
 import { TLoginRequest } from "../../_types/_request/_login.request-type";
 import StorageService from "../../services/storage/Storage.service";
 
-const LoginPage: React.FunctionComponent = () => {
+type TLoginPage = {
+    initLoading : boolean
+}
+
+const LoginPage: React.FunctionComponent<TLoginPage> = ({initLoading = false}) => {
 
     /**
      * route manage
@@ -22,7 +26,7 @@ const LoginPage: React.FunctionComponent = () => {
     /**
      * local state management
      */
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(initLoading);
 
     /**
      * form declaration
