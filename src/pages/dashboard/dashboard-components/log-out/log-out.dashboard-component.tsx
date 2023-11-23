@@ -1,7 +1,7 @@
 import React from "react";
 import { SirajPng } from "../../../../assets";
 import { useNavigate } from "react-router-dom";
-import StorageService from "../../../../services/Storage.service";
+import StorageService from "../../../../services/storage/Storage.service";
 
 const LogOutDashboardComponent: React.FunctionComponent = () => {
     /**

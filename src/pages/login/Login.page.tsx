@@ -8,12 +8,15 @@ import { Link } from "react-router-dom";
 import { SirajPng } from "../../assets";
 import LoadingComponent from "../components/loading.component";
 import { toast } from 'react-toastify';
-import ApiService from "../../services/Api.service";
+import ApiService from "../../services/api/Api.service";
 import { TLoginRequest } from "../../_types/_request/_login.request-type";
-import { TLoginSuccessResponse } from "../../_types/_response/_login.response-type";
-import StorageService from "../../services/Storage.service";
+import StorageService from "../../services/storage/Storage.service";
 
-const LoginPage: React.FunctionComponent = () => {
+type TLoginPage = {
+    initLoading : boolean
+}
+
+const LoginPage: React.FunctionComponent<TLoginPage> = ({initLoading = false}) => {
 
     /**
      * route manage
@@ -23,7 +26,7 @@ const LoginPage: React.FunctionComponent = () => {
     /**
      * local state management
      */
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(initLoading);
 
     /**
      * form declaration
@@ -53,20 +56,20 @@ const LoginPage: React.FunctionComponent = () => {
 
         //api call
         const API_SERVICE = new ApiService();
-        const result: TLoginSuccessResponse | undefined = await API_SERVICE.login(PAYLOAD);
-        
+        const result = await API_SERVICE.login(PAYLOAD);
+
         /**
          * store token
          */
         const STORE = new StorageService();
-        await STORE.setItem('token', result?.token);
+        await STORE.setItem('token', result?.data.token);
 
         setLoading(false);
 
         toast.success('Welcome to My Dashboard', {
-            position : 'top-center'
+            position: 'top-center'
         });
-        
+
         navigate('/react-simple-dashboard');
 
     }, [navigate]);
@@ -94,14 +97,14 @@ const LoginPage: React.FunctionComponent = () => {
                                 <label className="block text-gray-700 text-sm font-bold mb-2">
                                     Email address
                                 </label>
-                                <input className={`${errors.email ? `border-rose-600` : ''} shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`} type="email" {...register('email', { required: true })} placeholder="Email address" />
+                                <input data-testid="email" className={`${errors.email ? `border-rose-600` : ''} shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`} type="email" {...register('email', { required: true })} placeholder="Email address" />
                                 {errors.email && <div className="text-rose-600 font-bold text-sm mt-[0.1rem]">{errors.email.message}</div>}
                             </div>
                             <div className="mt-3 mb-3 w-80">
                                 <label className="block text-gray-700 text-sm font-bold mb-2">
                                     Password
                                 </label>
-                                <input className={`${errors.password ? `border-rose-600` : ''} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`} {...register('password', { required: true })} type="password" placeholder="Password" />
+                                <input data-testid="password" className={`${errors.password ? `border-rose-600` : ''} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`} {...register('password', { required: true })} type="password" placeholder="Password" />
                                 {errors.password && <div className="text-rose-600 font-bold text-sm mt-[0.1rem]">{errors.password.message}</div>}
                             </div>
                             <div className="mt-3 mb-3 w-80">

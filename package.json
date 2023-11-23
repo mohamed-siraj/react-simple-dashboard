@@ -34,8 +34,15 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
+    "coverage": "react-scripts test --coverage --watchAll --collectCoverageFrom='src/**/*.{ts,tsx}' --collectCoverageFrom='!src/**/index.{ts,tsx}' --collectCoverageFrom='!src/{_types,routers,schema,services/storage}/**/*.{ts,tsx}' --collectCoverageFrom='!src/{react-app-env.d,reportWebVitals}.ts'",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|ts)$": "babel-jest"
+    },
+    "transformIgnorePatterns": []
   },
   "eslintConfig": {
     "extends": [
@@ -56,7 +63,9 @@
     ]
   },
   "devDependencies": {
+    "@types/react-test-renderer": "^18.0.7",
     "gh-pages": "^6.0.0",
+    "react-test-renderer": "^18.2.0",
     "tailwindcss": "^3.3.5"
   }
 }

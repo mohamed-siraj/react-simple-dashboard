@@ -1,5 +1,5 @@
 import React, { ReactNode, Suspense } from "react";
-import StorageService from "../../services/Storage.service";
+import StorageService from "../../services/storage/Storage.service";
 import { useNavigate } from "react-router-dom";
 import { Rings } from 'react-loader-spinner';
 
