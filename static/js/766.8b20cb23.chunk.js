@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_simple_dashboard=self.webpackChunkreact_simple_dashboard||[]).push([[766],{766:function(e,a,s){s.d(a,{n:function(){return c}});s(2791);var c=s.p+"static/media/600x600.765627ea1cdf07bb9961ff7e9ededb27.svg"}}]);
+//# sourceMappingURL=766.8b20cb23.chunk.js.map
