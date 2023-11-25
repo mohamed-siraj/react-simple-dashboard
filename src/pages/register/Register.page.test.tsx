@@ -24,6 +24,31 @@ describe('register page', () => {
             expect(screenText).toBeInTheDocument();
         });
 
+        test('check all components are working', () => {
+            GlobalFunction().registerPage();
+
+            const inputEmail = screen.getByTestId('email');
+            expect(inputEmail).toBeInTheDocument();
+
+            const inputPassword = screen.getByTestId('password');
+            expect(inputPassword).toBeInTheDocument();
+
+            const inputConfirmPassword = screen.getByTestId('confirmPassword');
+            expect(inputConfirmPassword).toBeInTheDocument();
+
+            const btnRegister = screen.getByRole('button',{name: 'Register'});
+            expect(btnRegister).toBeInTheDocument();
+
+            const btnBack = screen.getByRole('button',{name: 'Back'});
+            expect(btnBack).toBeInTheDocument();
+        });
+
+    });
+
+    describe('login page form submit', () => {
+
+        
+
     });
 
 });
