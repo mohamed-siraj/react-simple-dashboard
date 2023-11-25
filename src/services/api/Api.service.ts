@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosError, AxiosResponse } from "axios";
-import { TLoginRequest } from "../../_types/_request/_login.request-type";
+import { TLoginRequest, TRegisterRequest } from "../../_types/_request/_request-type";
 import { toast } from 'react-toastify';
-import { TLoginErrorResponse, TLoginSuccessResponse } from "../../_types/_response/_login.response-type";
+import { TLoginErrorResponse, TLoginSuccessResponse, TRegisterSuccessResponse } from "../../_types/_response/_response-type";
 class ApiService {
 
     private INSTANCE: AxiosInstance;
@@ -17,6 +17,7 @@ class ApiService {
     /**
     * @description login request send to API
     * @param login 
+    * @returns {AxiosResponse<TLoginSuccessResponse> }
     */
     async login(login: TLoginRequest) {
 
@@ -34,6 +35,26 @@ class ApiService {
             toast.error(`${ERROR.response?.data.error}`);
         }
 
+    }
+
+    /**
+     * @description register request 
+     * @param register 
+     * @returns {AxiosResponse<TRegisterSuccessResponse>}
+     */
+    async register(register: TRegisterRequest) {
+        try {
+
+            const response: AxiosResponse<TRegisterSuccessResponse> = await this.INSTANCE.post(`/register`, register);
+            return response;
+
+        } catch (errors: any) {
+            /**
+             * error handling
+             */
+            const ERROR: AxiosError<TLoginErrorResponse> = errors;
+            toast.error(`${ERROR.response?.data.error}`);
+        }
     }
 
 };

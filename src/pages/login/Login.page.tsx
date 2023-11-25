@@ -9,7 +9,7 @@ import { SirajPng } from "../../assets";
 import LoadingComponent from "../components/loading/loading.component";
 import { toast } from 'react-toastify';
 import ApiService from "../../services/api/Api.service";
-import { TLoginRequest } from "../../_types/_request/_login.request-type";
+import { TLoginRequest } from "../../_types/_request/_request-type";
 import StorageService from "../../services/storage/Storage.service";
 import LabelFormComponent from "../components/form/label/Label.form.component";
 import InputFormComponent from "../components/form/Input/Input.form.component";
@@ -88,7 +88,7 @@ const LoginPage: React.FunctionComponent<TLoginPage> = ({ mockOnSubmit }) => {
             <img src={SirajPng} className=" rounded-full w-32" alt="Mohamed Siraj" />
             <div className="flex flex-col ml-5 mt-2">
                 <div className=" text-xl font-bold">Mohamed Siraj</div>
-                <div className=" text-md font-bold">Senior Software Engineer</div>
+                <div className=" text-md font-bold">Full Stack Software Engineer</div>
                 <Link to={`mailto:amsiraj94@gmail.com`}><div className=" text-md font-bold">amsiraj94@gmail.com</div></Link>
                 <Link to={`tel:+94756595269`}><div className=" text-md font-bold">+94756595269</div></Link>
             </div>
