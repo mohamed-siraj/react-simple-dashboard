@@ -35,7 +35,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
-    "coverage": "react-scripts test --coverage --watchAll --collectCoverageFrom='src/**/*.{ts,tsx}' --collectCoverageFrom='!src/**/index.{ts,tsx}' --collectCoverageFrom='!src/{_types,routers,schema,services/storage}/**/*.{ts,tsx}' --collectCoverageFrom='!src/{react-app-env.d,reportWebVitals}.ts'",
+    "coverage": "react-scripts test --coverage --watchAll --collectCoverageFrom='src/**/*.{tsx}' --collectCoverageFrom='!src/**/index.{tsx}'",
     "eject": "react-scripts eject"
   },
   "jest": {

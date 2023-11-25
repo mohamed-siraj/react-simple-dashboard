@@ -41,7 +41,6 @@ describe('login page', () => {
             expect(rgButton).toBeInTheDocument();
 
         });
-
     });
 
     describe('login page form submit', () => {
@@ -93,7 +92,6 @@ describe('login page', () => {
         });
 
     });
-    
 
     describe('api call testing', () => {
 
