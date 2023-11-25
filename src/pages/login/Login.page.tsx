@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginPageFormSchema } from "../../schema/form";
 import { Link } from "react-router-dom";
 import { SirajPng } from "../../assets";
-import LoadingComponent from "../components/loading.component";
+import LoadingComponent from "../components/loading/loading.component";
 import { toast } from 'react-toastify';
 import ApiService from "../../services/api/Api.service";
 import { TLoginRequest } from "../../_types/_request/_login.request-type";
@@ -79,7 +79,7 @@ const LoginPage: React.FunctionComponent<TLoginPage> = ({mockOnSubmit}) => {
 
         navigate('/react-simple-dashboard');
 
-    }, [navigate]);
+    }, [mockOnSubmit, navigate]);
 
     return (<>
         <div className="flex flex-row justify-center mt-16">
