@@ -12,7 +12,7 @@ const RegisterPage = React.lazy(() => import('../pages/register/Register.page'))
 const WITHOUT_AUTH_ROUTE: RouteObject[] = [
     {
         path: '/react-simple-dashboard/login',
-        element: <NoAuthGuard auth={false}><LoginPage initLoading={false} /></NoAuthGuard>,
+        element: <NoAuthGuard auth={false}><LoginPage /></NoAuthGuard>,
     },
     {
         path: '/react-simple-dashboard/register',

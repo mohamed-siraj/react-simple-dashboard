@@ -1,82 +1,116 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import LoginPage from './Login.page';
 import { BrowserRouter } from 'react-router-dom';
-import TestRenderer from 'react-test-renderer';
+import LoginPage from './Login.page';
+import { screen, render, fireEvent, act } from '@testing-library/react';
+import ApiService from '../../services/api/Api.service';
 
+/**
+ * global function
+ */
+const GlobalFunction = () => {
+    return {
+        loginPage: function() {
+            render(<BrowserRouter><LoginPage/></BrowserRouter>)
+        }
+    }
+};
 
-describe('Login component test', () => {
+describe('login page', () => {
 
-  test('login page successfully rendering', async () => {
+    describe('login page is rendering', () => {
 
-    await TestRenderer.act(() => {
-      render(<BrowserRouter><LoginPage initLoading={false} /></BrowserRouter>);
-    })
+        test('check successfully rendering login page', async () => {
+            GlobalFunction().loginPage();
+            const screenText = screen.getByText('Demo Credentials');
+            expect(screenText).toBeInTheDocument();
+        });
 
-    const linkElement = screen.getByText('Senior Software Engineer');
-    expect(linkElement).toBeInTheDocument();
-  });
+        test('check necessary components are there', async () => {
+            GlobalFunction().loginPage();
+            
+            const emailInput = screen.getByTestId('email');
+            expect(emailInput).toBeInTheDocument();
 
-  test('check all components are there in login page', async () => {
+            const passwordInput = screen.getByTestId('password');
+            expect(passwordInput).toBeInTheDocument();
 
-    await TestRenderer.act(() => {
-      render(<BrowserRouter><LoginPage initLoading={false} /></BrowserRouter>);
-    })
+            const lgButton = screen.getByRole('button', {name:'Login'});
+            expect(lgButton).toBeInTheDocument();
 
-    /**
-     * check filed and button there in login page
-     */
-    const emailLabel = screen.getByText('Email address');
-    expect(emailLabel).toBeInTheDocument();
+            const rgButton = screen.getByRole('button', {name:'Register'});
+            expect(rgButton).toBeInTheDocument();
 
-    const passwordLabel = screen.getByText('Password');
-    expect(passwordLabel).toBeInTheDocument();
+        });
 
-    const emailInput = screen.getByTestId('email');
-    expect(emailInput).toBeInTheDocument();
-
-    const passwordInput = screen.getByTestId('password');
-    expect(passwordInput).toBeInTheDocument();
-
-    const loginBtn = screen.getByRole('button', { name: 'Login' });
-    expect(loginBtn).toBeInTheDocument();
-
-
-  });
-
-  test('check form submit validation', async () => {
-
-    await TestRenderer.act(() => {
-      render(<BrowserRouter><LoginPage initLoading={false} /></BrowserRouter>);
-    })
-
-    //get button element and trigger click event
-    const submitBtn = screen.getByRole('button', { name: 'Register' });
-
-    // if react state handle inside of this submit area we should use act function from test library
-    await TestRenderer.act(() => {
-      fireEvent.submit(submitBtn);
     });
 
-    //get validation event check email validation
-    const emailValidation = screen.getByText('email is a required field');
-    expect(emailValidation).toBeInTheDocument();
-    //password validation
-    const passwordValidation = screen.getByText('password must be at least 5 characters');
-    expect(passwordValidation).toBeInTheDocument();
+    describe('login page form submit', () => {
 
-  });
+        test('unsuccessful submit', async() => {
+            GlobalFunction().loginPage();
 
-  test('Loading component check', async () => {
-    await TestRenderer.act(() => {
-      render(<BrowserRouter><LoginPage initLoading={true} /></BrowserRouter>);
-    })
+            // click button
+            const lgButton = screen.getByRole('button', {name:'Login'});
+            await act(() => {
+                fireEvent.click(lgButton);
+            });
 
-    const textLoading = screen.getByText('Loading...');
-    expect(textLoading).toBeInTheDocument();
+            const emailErrorLabel = screen.getByText('email is a required field');
+            expect(emailErrorLabel).toBeInTheDocument();
 
-  });
+            const passwordErrorLabel = screen.getByText('password must be at least 5 characters');
+            expect(passwordErrorLabel).toBeInTheDocument();
+
+        });
+
+        test('successful submit', async() => {
+
+            const mockOnSubmit = jest.fn();
+
+            render(<BrowserRouter><LoginPage mockOnSubmit={mockOnSubmit}/></BrowserRouter>)
+
+            /**
+             * set value
+             */
+            const emailInput = screen.getByTestId('email');
+            await act(() => {
+                fireEvent.change(emailInput, {target: {value : 'mohamedsiraj@siraj.lk'}});
+            });
+
+            const passwordInput = screen.getByTestId('password');
+            await act(() => {
+                fireEvent.change(passwordInput, {target: {value : 'followme'}});
+            });
+
+            // click button
+            const lgButton = screen.getByRole('button', {name:'Login'});
+            await act(() => {
+                fireEvent.click(lgButton);
+            });
+
+            expect(mockOnSubmit).toHaveBeenCalledTimes(1);
+
+        });
+
+    });
+    
+
+    describe('api call testing', () => {
+
+        test('login api call', async () => {
+
+            const mockLoginData = {
+                email: 'eve.holt@reqres.in',
+                password: 'cityslicka'
+            };
+
+            const apiService = new ApiService();
+            const response = await apiService.login(mockLoginData);
+
+            expect(response?.status).toBe(200);
+        });
+
+    });
+
 
 });
-
-
