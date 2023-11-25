@@ -11,12 +11,13 @@ import { toast } from 'react-toastify';
 import ApiService from "../../services/api/Api.service";
 import { TLoginRequest } from "../../_types/_request/_login.request-type";
 import StorageService from "../../services/storage/Storage.service";
+import LabelFormComponent from "../components/form/label/Label.form.component";
 
 type TLoginPage = {
-    mockOnSubmit? : () => void
+    mockOnSubmit?: () => void
 };
 
-const LoginPage: React.FunctionComponent<TLoginPage> = ({mockOnSubmit}) => {
+const LoginPage: React.FunctionComponent<TLoginPage> = ({ mockOnSubmit }) => {
 
     /**
      * route manage
@@ -40,7 +41,7 @@ const LoginPage: React.FunctionComponent<TLoginPage> = ({mockOnSubmit}) => {
         /**
          * test if function is work
          */
-        if(mockOnSubmit){
+        if (mockOnSubmit) {
             mockOnSubmit();
         }
 
@@ -101,16 +102,12 @@ const LoginPage: React.FunctionComponent<TLoginPage> = ({mockOnSubmit}) => {
                     <div className="flex flex-row justify-center">
                         <div className="flex flex-col">
                             <div className="mt-4 mb-3 w-80">
-                                <label className="block text-gray-700 text-sm font-bold mb-2">
-                                    Email address
-                                </label>
+                                <LabelFormComponent text={"Email address"} error={errors.email} />
                                 <input data-testid="email" className={`${errors.email ? `border-rose-600` : ''} shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`} type="email" {...register('email', { required: true })} placeholder="Email address" />
                                 {errors.email && <div className="text-rose-600 font-bold text-sm mt-[0.1rem]">{errors.email.message}</div>}
                             </div>
                             <div className="mt-3 mb-3 w-80">
-                                <label className="block text-gray-700 text-sm font-bold mb-2">
-                                    Password
-                                </label>
+                                <LabelFormComponent text={"Password"} error={errors.password} />
                                 <input data-testid="password" className={`${errors.password ? `border-rose-600` : ''} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`} {...register('password', { required: true })} type="password" placeholder="Password" />
                                 {errors.password && <div className="text-rose-600 font-bold text-sm mt-[0.1rem]">{errors.password.message}</div>}
                             </div>
