@@ -12,7 +12,11 @@ import ApiService from "../../services/api/Api.service";
 import { TLoginRequest } from "../../_types/_request/_login.request-type";
 import StorageService from "../../services/storage/Storage.service";
 
-const LoginPage: React.FunctionComponent = () => {
+type TLoginPage = {
+    mockOnSubmit? : () => void
+};
+
+const LoginPage: React.FunctionComponent<TLoginPage> = ({mockOnSubmit}) => {
 
     /**
      * route manage
@@ -32,6 +36,13 @@ const LoginPage: React.FunctionComponent = () => {
     });
 
     const onSubmit: SubmitHandler<TLoginForm> = useCallback(async (values) => {
+
+        /**
+         * test if function is work
+         */
+        if(mockOnSubmit){
+            mockOnSubmit();
+        }
 
         /**
          * check demo credentials
@@ -82,7 +93,7 @@ const LoginPage: React.FunctionComponent = () => {
         </div>
 
         <div className="flex flex-row justify-center py-20">
-            <div className="bg-white w-96 h-[32rem] rounded-2xl shadow-2xl">
+            <div className="bg-white w-96 h-[34rem] rounded-2xl shadow-2xl">
                 <div className="mt-10 text-center text-2xl font-bold">
                     <h1>Login</h1>
                 </div>
