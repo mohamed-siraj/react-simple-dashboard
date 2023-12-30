@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosError, AxiosResponse } from "axios";
 import { TLoginRequest, TRegisterRequest } from "../../_types/_request/_request-type";
 import { toast } from 'react-toastify';
-import { TLoginErrorResponse, TLoginSuccessResponse, TRegisterSuccessResponse } from "../../_types/_response/_response-type";
+import { TLoginErrorResponse, TLoginSuccessResponse, TRegisterSuccessResponse, TUserListResponse } from "../../_types/_response/_response-type";
 class ApiService {
 
     private INSTANCE: AxiosInstance;
@@ -56,6 +56,22 @@ class ApiService {
             toast.error(`${ERROR.response?.data.error}`);
         }
     }
+
+    async userList(page: number) {
+        try {
+
+            const response : AxiosResponse<TUserListResponse> = await this.INSTANCE.get(`users?page=${page}`)
+            return response.data;
+
+        } catch (errors : any) {
+            /**
+             * error handling
+             */
+            const ERROR: AxiosError<TLoginErrorResponse> = errors;
+            toast.error(`${ERROR.response?.data.error}`);
+        }
+    }
+
 
 };
 

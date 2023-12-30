@@ -2,19 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './tailwind.css';
 import "react-toastify/dist/ReactToastify.css";
-import reportWebVitals from './reportWebVitals'; 
+import reportWebVitals from './reportWebVitals';
 import {
   RouterProvider,
 } from "react-router-dom";
 import router from './routers/router';
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+
+/**
+ * redux
+ */
+import { Provider } from 'react-redux';
+import store from './services/redux/store';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <ToastContainer/>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </Provider>
   </React.StrictMode>
 );
 
