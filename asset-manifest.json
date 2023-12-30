@@ -1,28 +1,28 @@
 {
   "files": {
     "main.css": "/react-simple-dashboard/static/css/main.a38ef9ff.css",
-    "main.js": "/react-simple-dashboard/static/js/main.195f1301.js",
-    "static/js/433.bf05c668.chunk.js": "/react-simple-dashboard/static/js/433.bf05c668.chunk.js",
-    "static/js/316.8883ecfa.chunk.js": "/react-simple-dashboard/static/js/316.8883ecfa.chunk.js",
-    "static/js/611.f437f326.chunk.js": "/react-simple-dashboard/static/js/611.f437f326.chunk.js",
+    "main.js": "/react-simple-dashboard/static/js/main.8bab59f4.js",
+    "static/js/433.003efce8.chunk.js": "/react-simple-dashboard/static/js/433.003efce8.chunk.js",
+    "static/js/316.58719332.chunk.js": "/react-simple-dashboard/static/js/316.58719332.chunk.js",
+    "static/js/212.5bbbd805.chunk.js": "/react-simple-dashboard/static/js/212.5bbbd805.chunk.js",
     "static/js/407.58c72eea.chunk.js": "/react-simple-dashboard/static/js/407.58c72eea.chunk.js",
     "static/js/787.d9189018.chunk.js": "/react-simple-dashboard/static/js/787.d9189018.chunk.js",
-    "static/js/685.93a16127.chunk.js": "/react-simple-dashboard/static/js/685.93a16127.chunk.js",
+    "static/js/586.38eff41b.chunk.js": "/react-simple-dashboard/static/js/586.38eff41b.chunk.js",
     "static/js/766.8b20cb23.chunk.js": "/react-simple-dashboard/static/js/766.8b20cb23.chunk.js",
     "static/media/600x600.svg": "/react-simple-dashboard/static/media/600x600.765627ea1cdf07bb9961ff7e9ededb27.svg",
     "index.html": "/react-simple-dashboard/index.html",
     "main.a38ef9ff.css.map": "/react-simple-dashboard/static/css/main.a38ef9ff.css.map",
-    "main.195f1301.js.map": "/react-simple-dashboard/static/js/main.195f1301.js.map",
-    "433.bf05c668.chunk.js.map": "/react-simple-dashboard/static/js/433.bf05c668.chunk.js.map",
-    "316.8883ecfa.chunk.js.map": "/react-simple-dashboard/static/js/316.8883ecfa.chunk.js.map",
-    "611.f437f326.chunk.js.map": "/react-simple-dashboard/static/js/611.f437f326.chunk.js.map",
+    "main.8bab59f4.js.map": "/react-simple-dashboard/static/js/main.8bab59f4.js.map",
+    "433.003efce8.chunk.js.map": "/react-simple-dashboard/static/js/433.003efce8.chunk.js.map",
+    "316.58719332.chunk.js.map": "/react-simple-dashboard/static/js/316.58719332.chunk.js.map",
+    "212.5bbbd805.chunk.js.map": "/react-simple-dashboard/static/js/212.5bbbd805.chunk.js.map",
     "407.58c72eea.chunk.js.map": "/react-simple-dashboard/static/js/407.58c72eea.chunk.js.map",
     "787.d9189018.chunk.js.map": "/react-simple-dashboard/static/js/787.d9189018.chunk.js.map",
-    "685.93a16127.chunk.js.map": "/react-simple-dashboard/static/js/685.93a16127.chunk.js.map",
+    "586.38eff41b.chunk.js.map": "/react-simple-dashboard/static/js/586.38eff41b.chunk.js.map",
     "766.8b20cb23.chunk.js.map": "/react-simple-dashboard/static/js/766.8b20cb23.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a38ef9ff.css",
-    "static/js/main.195f1301.js"
+    "static/js/main.8bab59f4.js"
   ]
 }
